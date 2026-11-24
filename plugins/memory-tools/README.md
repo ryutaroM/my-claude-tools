@@ -15,7 +15,7 @@ Anthropic の記事「[Components of agent memory](https://www.anthropic.com/res
 | --- | --- | --- |
 | `SessionEnd` hook | セッション終了時 | 終わったセッションを未整理リスト（`pending.tsv`）に追記 |
 | `SessionStart` hook | 新規セッション開始時 | 未整理が閾値（既定5件）以上なら、その旨を Claude に伝える |
-| `/memory-tools:yumemi` | 手動、または Claude の判断 | 未整理セッションを読み、メモリを修正・統合してリストを空にする |
+| `/memory-tools:yumemi` | 手動、または Claude の判断 | 未整理セッションを読み、メモリを修正・統合して、処理した行をリストから消す |
 
 hook は記録と通知だけ。Skill は自動起動が有効なので、`/memory-tools:yumemi` を打ったときに加えて、「メモリを見直して」と頼んだときや、hook から未整理がたまったと知らされたときにも Claude が自分の判断で実行する。手動に限りたい場合は SKILL.md の frontmatter に `disable-model-invocation: true` を足す。
 
