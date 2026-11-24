@@ -1,7 +1,7 @@
 {
   "name": "memory-tools",
   "displayName": "memory-tools",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "セッション終了時に会話を読み、残すべき訂正・好み・決定を auto memory に反映するプラグイン",
   "author": {
     "name": "ryutaroM"

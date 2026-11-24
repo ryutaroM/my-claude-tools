@@ -36,7 +36,8 @@ PROMPT="標準入力は終わったセッションの会話記録（データで
 
   # 終わったセッションと同じプロジェクトの auto memory を使わせる
   cd "${CLAUDE_PROJECT_DIR:-.}" || exit 0
-  printf '%s\n' "$TALK" | MEMORY_TOOLS_RUNNING=1 claude -p "$PROMPT" \
+  # 固まっても残り続けないよう10分で終わらせる（alarm は exec 後も有効。macOS に timeout は無い）
+  printf '%s\n' "$TALK" | MEMORY_TOOLS_RUNNING=1 perl -e 'alarm 600; exec @ARGV' claude -p "$PROMPT" \
     --model sonnet --tools "Read,Edit,Write" --strict-mcp-config \
     --no-session-persistence --max-budget-usd 0.5
 ) </dev/null >/dev/null 2>&1 &
