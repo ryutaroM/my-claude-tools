@@ -16,7 +16,7 @@ Anthropic の記事「[Components of agent memory](https://www.anthropic.com/res
 | `SessionStart` hook | 新規セッション開始時 | 未整理のセッションが閾値（既定5件）以上なら、その旨を Claude に伝える |
 | `/memory-tools:yumemi` | 手動、または Claude の判断 | 未整理のセッションを古い順に最大20件読み、メモリを修正・統合する |
 
-未整理のセッションとは、前回の整理より後に更新されたトランスクリプトのこと。どこまで整理したかは `memory/.yumemi-last` の更新時刻で覚える。実行中のセッションと、yumemi を実行したセッションは数えない。初回は残っているトランスクリプトすべてが対象になる。
+未整理のセッションとは、前回の整理より後に更新されたトランスクリプトのこと。どこまで整理したかは `memory/.yumemi-last` の更新時刻で覚える。実行中のセッションと、`/yumemi` で始まったセッションは数えない。初回は残っているトランスクリプトすべてが対象になる。
 
 hook は通知だけ。Skill は自動起動が有効なので、`/memory-tools:yumemi` を打ったときに加えて、「メモリを見直して」と頼んだときや、hook から未整理がたまったと知らされたときにも Claude が自分の判断で実行する。手動に限りたい場合は SKILL.md の frontmatter に `disable-model-invocation: true` を足す。
 

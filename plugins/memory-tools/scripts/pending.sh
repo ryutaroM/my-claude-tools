@@ -8,10 +8,11 @@ set -u
 
 LIMIT=20
 
-# yumemi を実行したセッションか（自分の整理作業を再整理しないため）
-# スキル名はスキル一覧や通知文にも現れるので、実際の呼び出し（Skill ツール / スラッシュコマンド）だけに一致させる
-ran_yumemi() {
-  grep -qE '"skill"[[:space:]]*:[[:space:]]*"([^":]+:)?yumemi"|<command-name>/([^<:]+:)?yumemi</command-name>' "$1" 2>/dev/null
+# yumemi のために開いたセッションか（自分の整理作業を再整理しないため）
+# 作業の途中で yumemi が起動されたセッションには拾うべき訂正も含まれるので、
+# 最初のユーザー発言が /yumemi のものだけを除く
+opened_for_yumemi() {
+  grep -m1 '"type":"user"' "$1" 2>/dev/null | grep -qE '<command-name>/([^<:]+:)?yumemi</command-name>'
 }
 
 # 未整理のトランスクリプトを古い順に出力する: list <ディレクトリ> <除外するトランスクリプト>
@@ -24,7 +25,7 @@ list() {
     if [ -f "$1/memory/.yumemi-last" ]; then
       [ -n "$(find "$f" -newer "$1/memory/.yumemi-last")" ] || continue
     fi
-    ran_yumemi "$f" && continue
+    opened_for_yumemi "$f" && continue
     printf '%s\n' "$f"
   done
 }
