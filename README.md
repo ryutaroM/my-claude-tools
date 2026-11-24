@@ -13,7 +13,7 @@ claude plugin install <プラグイン名>@ryutaroM-tools
 
 | 名前                     | 内容                                                                |
 | ------------------------ | ------------------------------------------------------------------- |
-| [memory-tools](plugins/memory-tools) | Skill `yumemi`: 過去セッションを読み返して auto memory を検証・整理する（dreaming） |
+| [memory-tools](plugins/memory-tools) | セッション終了時に会話を読み、残すべきことを auto memory に反映する |
 
 ## プラグインを追加するとき
 

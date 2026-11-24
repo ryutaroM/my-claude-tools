@@ -1,12 +1,11 @@
 {
   "hooks": {
-    "SessionStart": [
+    "SessionEnd": [
       {
-        "matcher": "startup",
         "hooks": [
           {
             "type": "command",
-            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/pending.sh\" notify"
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/scripts/remember.sh\""
           }
         ]
       }

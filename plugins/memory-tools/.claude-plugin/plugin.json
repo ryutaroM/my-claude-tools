@@ -1,18 +1,14 @@
 {
   "name": "memory-tools",
   "displayName": "memory-tools",
-  "version": "0.2.1",
-  "description": "過去セッションのトランスクリプトを読み返し、auto memory を検証・整理する dreaming プラグイン",
-  "author": { "name": "ryutaroM" },
+  "version": "0.3.0",
+  "description": "セッション終了時に会話を読み、残すべき訂正・好み・決定を auto memory に反映するプラグイン",
+  "author": {
+    "name": "ryutaroM"
+  },
   "license": "MIT",
-  "keywords": ["memory", "dreaming", "transcript"],
-  "userConfig": {
-    "threshold": {
-      "type": "number",
-      "title": "通知の閾値",
-      "description": "未整理セッションがこの件数以上たまったら、セッション開始時に知らせる",
-      "default": 5,
-      "min": 1
-    }
-  }
+  "keywords": [
+    "memory",
+    "transcript"
+  ]
 }

@@ -6,7 +6,7 @@
     {
       "name": "memory-tools",
       "source": "./plugins/memory-tools",
-      "description": "過去セッションを読み返して auto memory を検証・整理する（dreaming）"
+      "description": "セッション終了時に会話を読み、残すべきことを auto memory に反映する"
     }
   ]
 }
