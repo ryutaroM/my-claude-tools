@@ -6,7 +6,7 @@
     {
       "name": "memory-tools",
       "source": "./plugins/memory-tools",
-      "description": "セッション終了時に会話を読み、残すべきことを auto memory に反映する"
+      "description": "セッション終了時に会話を読み、残すべきことを auto memory に反映・整理する"
     }
   ]
 }

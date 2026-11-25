@@ -13,7 +13,7 @@ claude plugin install <プラグイン名>@ryutaroM-tools
 
 | 名前                     | 内容                                                                |
 | ------------------------ | ------------------------------------------------------------------- |
-| [memory-tools](plugins/memory-tools) | セッション終了時に会話を読み、残すべきことを auto memory に反映する |
+| [memory-tools](plugins/memory-tools) | セッション終了時に会話を読み、残すべきことを auto memory に反映・整理する（Skill `yumemi`、dreaming） |
 
 ## プラグインを追加するとき
 
